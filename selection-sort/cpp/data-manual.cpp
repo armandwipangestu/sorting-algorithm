@@ -10,13 +10,18 @@ void swapPointer(int *x_pointer, int *y_pointer) {
   *y_pointer = temporary_pointer;
 }
 
-void bubbleSort(int array[], int array_length) {
-  int i, j;
+void selectionSort(int array[], int array_length) {
+  int i, j, min_idx;
+
   for(i = 0; i < array_length - 1; i++) {
-    for(j = 0; j < array_length - i - 1; j++) {
-      if(array[j] > array[j + 1]) {
-        swapPointer(&array[j], &array[j + 1]);
+    min_idx = i;
+    for(j = i+1; j < array_length; j++) {
+      if(array[j] < array[min_idx]) {
+        min_idx = j;
       }
+    }
+    if(min_idx != i) {
+      swapPointer(&array[min_idx], &array[i]);
     }
   }
 }
@@ -50,7 +55,7 @@ int main() {
   cout << "Data Setelah di Sorting: \n";
 
   auto start = high_resolution_clock::now();
-  bubbleSort(array, array_length);
+  selectionSort(array, array_length);
   auto stop = high_resolution_clock::now();
   auto duration = duration_cast<microseconds>(stop - start);
 
