@@ -16,13 +16,15 @@ void swapPointer(int *x_position, int *y_position) {
   *y_position = temporary_pointer;
 }
 
-void startBubbleSort(int data[], int data_length) {
-  for(int i = 0; i < data_length; i++) {
-    for(int j = 0; j < data_length - i - 1; j++) {
-      if(data[j] > data[j + 1]) {
-        swapPointer(&data[j], &data[j + 1]);
-      }
+void startInsertionSort(int data[], int data_length) {
+  for(int i = 1; i < data_length; i++) {
+    int key = data[i];
+    int j = i - 1;
+    while(j >= 0 && data[j] > key) {
+      data[j + 1] = data[j];
+      j = j - 1;
     }
+    data[j + 1] = key;
   }
 }
 
@@ -56,7 +58,7 @@ int main() {
 
   auto start = high_resolution_clock::now();
   //cout << duration_cast<microseconds>(to_string(start));
-  startBubbleSort(data, data_length);
+  startInsertionSort(data, data_length);
   auto stop = high_resolution_clock::now();
   //cout << duration_cast<microseconds>(to_string(stop));
   auto duration = duration_cast<seconds>(stop - start);
