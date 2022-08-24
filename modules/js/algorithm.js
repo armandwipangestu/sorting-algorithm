@@ -25,6 +25,25 @@ const insertionSort = (data) => {
   return data;
 };
 
+const selectionSort = (data) => {
+  for (let i = 0; i < data.length; i++) {
+    let min_index = i;
+    for (let j = i + 1; j < data.length; j++) {
+      if (data[j] < data[min_index]) {
+        min_index = j;
+      }
+    }
+    swapData(data, min_index, i);
+  }
+  return data;
+};
+
+const swapData = (data, xPointer, yPointer) => {
+  let temp = data[xPointer];
+  data[xPointer] = data[yPointer];
+  data[yPointer] = temp;
+};
+
 const setData = (total) => {
   let data = [];
   for (let i = 0; i < total; i++) {
@@ -33,4 +52,4 @@ const setData = (total) => {
   return data;
 };
 
-export { bubbleSort, insertionSort, setData };
+export { bubbleSort, insertionSort, selectionSort, swapData, setData };
