@@ -1,12 +1,7 @@
-import { 
-	bubbleSort,
-	setThousandData, 
-	getThousandData 
-} from "./logic.js"
+import { bubbleSort, setThousandData } from "../../modules/js/algorithm.js";
 
-const data = setThousandData(1000)
+const data = setThousandData(1000);
+console.log(`Data sebelum di sorted:\n\n${data}`);
 
-console.log("Data sebelum di sorting: \n")
-console.log(getThousandData(data))
-console.log("\nData setelah di sorting: \n")
-console.log(bubbleSort(getThousandData(data)))
+const dataSorted = bubbleSort(data);
+console.log(`\nData setelah di sorted:\n\n${dataSorted}`);
