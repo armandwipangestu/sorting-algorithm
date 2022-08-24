@@ -1,7 +1,10 @@
-import { bubbleSort, setThousandData } from "../../modules/js/algorithm.js";
+import { bubbleSort, setData } from "../../modules/js/algorithm.js";
 
-const data = setThousandData(1000);
-console.log(`Data sebelum di sorted:\n\n${data}`);
+const totalData = 1000;
+const data = setData(totalData);
+console.log(`Data sebelum di sorting (total data = ${totalData}):\n\n${data}`);
 
 const dataSorted = bubbleSort(data);
-console.log(`\nData setelah di sorted:\n\n${dataSorted}`);
+console.log(
+  `\nData setelah di sorting (total data = ${totalData}):\n\n${dataSorted}`
+);
